@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofia & Lucas | Advocacia & Consultoria Jurídica de Alto Padrão</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#111c35',
+                            900: '#0B1325',
+                            950: '#050B14',
+                        },
+                        gold: {
+                            300: '#E2C285',
+                            400: '#D4AF37',
+                            500: '#C5A059',
+                            600: '#99742A',
+                            light: '#FAF7F0',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #050B14;
+            color: #F1F5F9;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F3E7C4 0%, #C5A059 50%, #99742A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A059 50%, #99742A 100%);
+        }
+        .glass-card {
+            background: rgba(11, 19, 37, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(197, 160, 89, 0.18);
+        }
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-6px);
+            border-color: rgba(197, 160, 89, 0.45);
+            box-shadow: 0 20px 40px -15px rgba(197, 160, 89, 0.15);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-navy-950 overflow-x-hidden">
+
+    <!-- 1. Header Fixo (Sticky) -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-navy-950/85 backdrop-blur-xl border-b border-gold-500/15">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="w-11 h-11 rounded-full border border-gold-500/80 flex items-center justify-center text-gold-400 font-serif font-bold text-lg group-hover:bg-gold-500 group-hover:text-navy-950 transition-all duration-300 shadow-lg shadow-gold-500/10">
+                    S&L
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-xl tracking-wider font-bold text-white group-hover:text-gold-300 transition-colors">SOFIA & LUCAS</span>
+                    <span class="text-[9px] tracking-[0.25em] text-gold-400 uppercase font-semibold">Advocacia e Consultoria Jurídica</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#diferencial" class="hover:text-gold-400 transition-colors">O Casal de Sócios</a>
+                <a href="#atuacao" class="hover:text-gold-400 transition-colors">Áreas de Atuação</a>
+                <a href="#socios" class="hover:text-gold-400 transition-colors">Sobre Nós</a>
+                <a href="#depoimentos" class="hover:text-gold-400 transition-colors">Casos de Sucesso</a>
+                <a href="#faq" class="hover:text-gold-400 transition-colors">FAQ</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Sofia%20e%20o%20Dr.%20Lucas." target="_blank" class="px-6 py-2.5 rounded-full gold-gradient-bg text-navy-950 font-bold text-sm tracking-wide shadow-lg shadow-gold-500/15 hover:shadow-gold-500/30 hover:scale-[1.03] transition-all duration-300 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Consulta via WhatsApp</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="lg:hidden text-gold-400 text-2xl focus:outline-none p-2" aria-label="Abrir Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-900/95 backdrop-blur-2xl border-b border-gold-500/20 px-6 py-6 flex flex-col gap-4 text-center">
+            <a href="#diferencial" class="mobile-link text-slate-200 hover:text-gold-400 py-2 font-medium">O Casal de Sócios</a>
+            <a href="#atuacao" class="mobile-link text-slate-200 hover:text-gold-400 py-2 font-medium">Áreas de Atuação</a>
+            <a href="#socios" class="mobile-link text-slate-200 hover:text-gold-400 py-2 font-medium">Sobre Nós</a>
+            <a href="#depoimentos" class="mobile-link text-slate-200 hover:text-gold-400 py-2 font-medium">Casos de Sucesso</a>
+            <a href="#faq" class="mobile-link text-slate-200 hover:text-gold-400 py-2 font-medium">FAQ</a>
+            <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20casal%20de%20advogados." target="_blank" class="mt-2 w-full py-3.5 rounded-full gold-gradient-bg text-navy-950 font-bold text-center flex items-center justify-center gap-2 shadow-lg">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Falar com o Casal no WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section de Alto Impacto -->
+    <section class="relative min-h-screen pt-36 pb-20 flex items-center justify-center overflow-hidden bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950">
+        <!-- Glow effects -->
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gold-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-96 h-96 bg-blue-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Column: Copy & CTAs -->
+            <div class="lg:col-span-7 flex flex-col items-start text-left">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs tracking-widest uppercase font-semibold mb-6">
+                    <i class="fa-solid fa-shield-halved text-xs"></i>
+                    <span>Advocacia Estratégica em Dupla</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12] mb-6">
+                    A força de dois especialistas dedicados <span class="gold-gradient-text italic">à proteção do seu patrimônio</span> e da sua família.
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-slate-300 text-lg sm:text-xl font-light leading-relaxed mb-8 max-w-2xl">
+                    Dra. Sofia e Dr. Lucas unem visão estratégica, rigor técnico e atendimento boutique para defender causas empresariais, patrimoniais e familiares de alto valor.
+                </p>
+
+                <!-- Dual CTAs -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-12">
+                    <a href="https://wa.me/5511999999999?text=Olá,%20preciso%20de%20atendimento%20jurídico%20especializado." target="_blank" class="px-8 py-4 rounded-full gold-gradient-bg text-navy-950 font-bold text-base shadow-xl shadow-gold-500/20 hover:shadow-gold-500/40 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Consulta Rápida via WhatsApp</span>
+                    </a>
+                    <a href="#contato" class="px-8 py-4 rounded-full bg-white/5 border border-gold-500/30 text-white font-semibold text-base hover:bg-white/10 hover:border-gold-500 transition-all duration-300 flex items-center justify-center gap-2">
+                        <span>Agendar Reunião</span>
+                        <i class="fa-solid fa-arrow-right text-xs text-gold-400"></i>
+                    </a>
+                </div>
+
+                <!-- Social Proof Metrics -->
+                <div class="grid grid-cols-3 gap-6 pt-8 border-t border-slate-800/80 w-full">
+                    <div>
+                        <div class="font-serif text-3xl sm:text-4xl font-bold text-gold-400">+12 Anos</div>
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Atuação Combinada</div>
+                    </div>
+                    <div>
+                        <div class="font-serif text-3xl sm:text-4xl font-bold text-gold-400">R$ 50M+</div>
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Patrimônio Protegido</div>
+                    </div>
+                    <div>
+                        <div class="font-serif text-3xl sm:text-4xl font-bold text-gold-400">99%</div>
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Aprovação dos Clientes</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Visual Portrait -->
+            <div class="lg:col-span-5 relative flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <!-- Frame Accent -->
+                    <div class="absolute -inset-2 bg-gradient-to-tr from-gold-500/40 via-gold-400/10 to-transparent rounded-3xl blur-xl opacity-70"></div>
+                    
+                    <!-- Main Glass Card Container -->
+                    <div class="relative rounded-3xl bg-navy-900/90 border border-gold-500/30 p-4 shadow-2xl overflow-hidden">
+                        <div class="relative h-[480px] rounded-2xl overflow-hidden group">
+                            <!-- High quality photo of a modern power couple / lawyers -->
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=900" alt="Dra. Sofia e Dr. Lucas - Sócios" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x800/0B1325/C5A059?text=Sofia+%26+Lucas+Advocacia'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent opacity-90"></div>
+                            
+                            <!-- Floating Overlay Card -->
+                            <div class="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-navy-950/85 backdrop-blur-md border border-gold-500/30">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 text-xl shrink-0">
+                                        <i class="fa-solid fa-users-line"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-base font-bold text-white font-serif">Dra. Sofia & Dr. Lucas</h2>
+                                        <p class="text-xs text-gold-400 mt-0.5">OAB/SP 382.910 • OAB/SP 391.204</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Diferencial do Casal de Advogados -->
+    <section id="diferencial" class="py-24 relative bg-navy-900/40">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-400 text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">Sinergia e Dedicação Exclusiva</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">Por que uma atuação em dupla transforma seu caso?</h2>
+                <p class="text-slate-400 font-light text-base">Trabalhar com um casal de sócios especialistas significa ter o dobro de atenção, visões complementares e alinhamento total em cada decisão jurídica.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl relative">
+                    <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-3">Estratégia Jurídica Dupla</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Seu caso é analisado sob dois ângulos complementares: a visão minuciosa de previdência e proteção patrimonial da Dra. Sofia e a agilidade em negociações do Dr. Lucas.
+                    </p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl relative">
+                    <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-3">Atendimento Boutique Exclusivo</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Você não é atendido por estagiários. O contato direto é feito com os sócios fundadores, garantindo sigilo absoluto, empatia e disponibilidade permanente.
+                    </p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl relative">
+                    <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6">
+                        <i class="fa-solid fa-shield-cat"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-3">Proteção Familiar & Negócios</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Entendemos a relevância das relações familiares e corporativas. Unimos a sensibilidade humana com a firmeza necessária para blindar seus bens.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Áreas de Atuação (Interactive Cards) -->
+    <section id="atuacao" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-gold-400 text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">Expertise de Alto Padrão</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">Nossas Áreas de Excelência</h2>
+                </div>
+                <p class="text-slate-400 font-light max-w-md text-sm leading-relaxed">
+                    Soluções jurídicas preventivas e litigatorias desenhadas sob medida para pessoas físicas, holdings familiares e empresas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 text-xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-colors">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h3 class="font-serif text-lg font-bold text-white mb-3 group-hover:text-gold-300 transition-colors">Direito Empresarial & Societário</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Reestruturação de empresas, prevenção de riscos contratuais, governança corporativa e assessoria continuada.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20falar%20sobre%20Direito%20Empresarial." target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gold-400 hover:text-gold-300">
+                        <span>Consultar Especialistas</span>
+                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 text-xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-colors">
+                            <i class="fa-solid fa-vault"></i>
+                        </div>
+                        <h3 class="font-serif text-lg font-bold text-white mb-3 group-hover:text-gold-300 transition-colors">Blindagem Patrimonial & Holdings</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Criação de Holdings Familiares, proteção de ativos contra dívidas e estruturações tributárias seguras.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20falar%20sobre%20Blindagem%20Patrimonial." target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gold-400 hover:text-gold-300">
+                        <span>Consultar Especialistas</span>
+                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 text-xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-colors">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <h3 class="font-serif text-lg font-bold text-white mb-3 group-hover:text-gold-300 transition-colors">Contratos & Direito Civil</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Negociações complexas, revisão técnica de contratos de alto valor e indenizações de grande porte.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20falar%20sobre%20Contratos%20e%20Direito%20Civil." target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gold-400 hover:text-gold-300">
+                        <span>Consultar Especialistas</span>
+                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 text-xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-colors">
+                            <i class="fa-solid fa-house-chimney-window"></i>
+                        </div>
+                        <h3 class="font-serif text-lg font-bold text-white mb-3 group-hover:text-gold-300 transition-colors">Direito Imobiliário & Sucessões</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Planejamento sucessório, inventários extrajudiciais, regularização de imóveis e assessoria em aquisições.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20falar%20sobre%20Direito%20Imobiliário%20e%20Sucessões." target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gold-400 hover:text-gold-300">
+                        <span>Consultar Especialistas</span>
+                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Sobre os Sócios (Dra. Sofia & Dr. Lucas) -->
+    <section id="socios" class="py-24 bg-navy-900/60 relative border-y border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-400 text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">Autoridade & Tradição</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">Conheça os Sócios Fundadores</h2>
+                <p class="text-slate-400 font-light">Comprometimento técnico, formação sólida e dedicação integral à causa de cada cliente.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Sofia Bio Card -->
+                <div class="glass-card p-8 sm:p-10 rounded-3xl relative overflow-hidden border border-gold-500/20">
+                    <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Dra. Sofia" class="w-24 h-24 rounded-2xl object-cover border border-gold-500/40 shadow-lg" onerror="this.src='https://placehold.co/300x300/0B1325/C5A059?text=Dra.+Sofia'">
+                        <div>
+                            <span class="text-gold-400 text-xs font-semibold uppercase tracking-widest">Sócia-Fundadora</span>
+                            <h3 class="font-serif text-2xl font-bold text-white">Dra. Sofia Mendes</h3>
+                            <p class="text-xs text-slate-400 mt-1">OAB/SP 382.910 • Especialista em Direito Empresarial</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 font-light">
+                        Mestre em Direito Comercial pela USP, Dra. Sofia possui vasto histórico no planejamento de holdings familiares e proteção patrimonial preventivas. Sua atuação é marcada pelo olhar analítico e refinado para o gerenciamento de riscos contratuais e societários.
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800 text-xs text-gold-400 font-medium">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Pós-graduada em Negociação & Contratos</span>
+                    </div>
+                </div>
+
+                <!-- Lucas Bio Card -->
+                <div class="glass-card p-8 sm:p-10 rounded-3xl relative overflow-hidden border border-gold-500/20">
+                    <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Dr. Lucas" class="w-24 h-24 rounded-2xl object-cover border border-gold-500/40 shadow-lg" onerror="this.src='https://placehold.co/300x300/0B1325/C5A059?text=Dr.+Lucas'">
+                        <div>
+                            <span class="text-gold-400 text-xs font-semibold uppercase tracking-widest">Sócio-Fundador</span>
+                            <h3 class="font-serif text-2xl font-bold text-white">Dr. Lucas Mendes</h3>
+                            <p class="text-xs text-slate-400 mt-1">OAB/SP 391.204 • Especialista em Contencioso & Imobiliário</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 font-light">
+                        Especialista em Direito Imobiliário e Contencioso Estratégico, Dr. Lucas combina atuação firme em tribunais com excelente habilidade em conciliações de alto impacto. Liderou negociações e disputas que protegeram dezenas de milhões em ativos empresariais.
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800 text-xs text-gold-400 font-medium">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Especialista em Arbitragem e Litígios Imobiliários</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Prova Social / Depoimentos -->
+    <section id="depoimentos" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-400 text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">Depoimentos Reais</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">Confiança de Quem Teve Seus Bens Protegidos</h2>
+                <p class="text-slate-400 font-light">A satisfação dos nossos clientes é o maior selo de qualidade do nosso trabalho.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Depoimento 1 -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-gold-400 text-xs mb-6">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+                            "A Dra. Sofia e o Dr. Lucas foram fundamentais na estruturação da Holding Familiar do nosso grupo empresarial. A sintonia entre os dois nos deu total segurança. Atendimento impecável!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-6 border-t border-slate-800/80">
+                        <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-sm">
+                            HM
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-white">Henrique Moretti</div>
+                            <div class="text-xs text-slate-400">Empresário do Setor Industrial</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-gold-400 text-xs mb-6">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+                            "Precisei resolver um problema gravíssimo de contrato imobiliário. O Dr. Lucas foi ágil e cirúrgico, enquanto a Dra. Sofia cuidou de toda a parte estratégica. Recomendo fortemente!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-6 border-t border-slate-800/80">
+                        <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-sm">
+                            CP
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-white">Camila Prado</div>
+                            <div class="text-xs text-slate-400">Investidora Imobiliária</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-gold-400 text-xs mb-6">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+                            "A blindagem patrimonial que fizeram para minha família nos trouxe paz de espírito. Eles explicam conceitos jurídicos difíceis de forma transparente e acolhedora."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-6 border-t border-slate-800/80">
+                        <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-sm">
+                            AR
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-white">Dr. Alberto Rocha</div>
+                            <div class="text-xs text-slate-400">Médico e Empreendedor</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Seção FAQ Interativa + Form de Conversão -->
+    <section id="faq" class="py-24 bg-navy-900/40 relative border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left: FAQ Accordion -->
+            <div class="lg:col-span-6">
+                <span class="text-gold-400 text-xs font-semibold tracking-[0.2em] uppercase mb-2 block">Respostas Diretas</span>
+                <h2 class="font-serif text-3xl font-bold text-white mb-6">Perguntas Frequentes</h2>
+
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-semibold text-white flex items-center justify-between gap-4 focus:outline-none">
+                            <span class="text-sm">Por que contratar uma banca de advogados em dupla?</span>
+                            <i id="faq-icon-1" class="fa-solid fa-chevron-down text-gold-400 text-xs transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-content-1" class="hidden px-5 pb-5 text-slate-400 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 pt-3">
+                            A atuação em dupla por sócios fundadores garante análises sob múltiplos pontos de vista, mitigando riscos e agilizando tomadas de decisão que um profissional isolado levaria muito mais tempo para estruturar.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-semibold text-white flex items-center justify-between gap-4 focus:outline-none">
+                            <span class="text-sm">Como funciona o atendimento inicial via WhatsApp?</span>
+                            <i id="faq-icon-2" class="fa-solid fa-chevron-down text-gold-400 text-xs transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-content-2" class="hidden px-5 pb-5 text-slate-400 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 pt-3">
+                            Após enviar os detalhes do seu caso no formulário ao lado, nossa equipe tria suas informações e direciona diretamente para conversa privativa com a Dra. Sofia ou o Dr. Lucas.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <button onclick="toggleFaq(3)" class="w-full p-5 text-left font-semibold text-white flex items-center justify-between gap-4 focus:outline-none">
+                            <span class="text-sm">O escritório realiza atendimentos fora de São Paulo?</span>
+                            <i id="faq-icon-3" class="fa-solid fa-chevron-down text-gold-400 text-xs transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-content-3" class="hidden px-5 pb-5 text-slate-400 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 pt-3">
+                            Sim! Atendemos clientes em todo o Brasil e no exterior por meio de reuniões presenciais estratégicas ou ambiente virtual criptografado.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <button onclick="toggleFaq(4)" class="w-full p-5 text-left font-semibold text-white flex items-center justify-between gap-4 focus:outline-none">
+                            <span class="text-sm">O que é necessário para iniciar a Blindagem Patrimonial?</span>
+                            <i id="faq-icon-4" class="fa-solid fa-chevron-down text-gold-400 text-xs transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-content-4" class="hidden px-5 pb-5 text-slate-400 text-xs sm:text-sm leading-relaxed border-t border-slate-800/60 pt-3">
+                            Realizamos inicialmente uma auditoria jurídica dos bens familiares/empresariais para entender os riscos e desenhar a melhor estrutura societária e tributária para o seu caso.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Intelligent WhatsApp Conversion Form -->
+            <div id="contato" class="lg:col-span-6 glass-card p-8 sm:p-10 rounded-3xl border border-gold-500/30 shadow-2xl relative">
+                <span class="text-gold-400 text-xs font-semibold tracking-[0.2em] uppercase mb-2 block">Atendimento Prioritário</span>
+                <h3 class="font-serif text-2xl font-bold text-white mb-2">Fale Diretamente com os Advogados</h3>
+                <p class="text-slate-400 text-xs sm:text-sm mb-6 font-light">Preencha os dados e receba orientações iniciais direto no seu WhatsApp.</p>
+
+                <form id="whatsapp-form" onsubmit="sendToWhatsApp(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1.5">Seu Nome Completo *</label>
+                        <input type="text" id="form-name" required placeholder="Ex: Dr. Roberto Guimarães" class="w-full bg-navy-950/80 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-gold-500 transition-colors">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1.5">Seu WhatsApp *</label>
+                            <input type="tel" id="form-phone" required placeholder="(11) 99999-9999" class="w-full bg-navy-950/80 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-gold-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1.5">Área do Problema *</label>
+                            <select id="form-area" class="w-full bg-navy-950/80 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors">
+                                <option value="Empresarial">Direito Empresarial</option>
+                                <option value="Blindagem Patrimonial">Blindagem Patrimonial</option>
+                                <option value="Contratos Civis">Contratos & Direito Civil</option>
+                                <option value="Imobiliário & Sucessões">Imobiliário & Sucessões</option>
+                                <option value="Outros Assuntos">Outro Assunto Especial</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1.5">Descrição Sumária do Caso *</label>
+                        <textarea id="form-message" rows="3" required placeholder="Resuma brevemente sua dúvida ou necessidade jurídica..." class="w-full bg-navy-950/80 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-gold-500 transition-colors"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-xl gold-gradient-bg text-navy-950 font-bold text-sm tracking-wide shadow-xl shadow-gold-500/15 hover:shadow-gold-500/30 hover:scale-[1.01] transition-all flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Enviar e Iniciar Conversa no WhatsApp</span>
+                    </button>
+                </form>
+
+                <div id="form-alert" class="hidden mt-4 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs text-center">
+                    Redirecionando com segurança para o WhatsApp oficial de Sofia & Lucas Advocacia...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Rodapé Completo -->
+    <footer class="bg-navy-950 border-t border-slate-900 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <!-- Col 1: Brand Info -->
+                <div class="md:col-span-2">
+                    <a href="#" class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 rounded-full border border-gold-500 flex items-center justify-center text-gold-400 font-serif font-bold text-sm">
+                            S&L
+                        </div>
+                        <span class="font-serif text-lg tracking-wider font-bold text-white">SOFIA & LUCAS</span>
+                    </a>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm mb-6 font-light">
+                        Escritório de Advocacia Boutique focado em governança empresarial, proteção patrimonial familiar e contencioso civil estratégico.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-navy-900 border border-slate-800 flex items-center justify-center text-gold-400 hover:bg-gold-500 hover:text-navy-950 transition-all">
+                            <i class="fa-brands fa-linkedin-in text-xs"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-navy-900 border border-slate-800 flex items-center justify-center text-gold-400 hover:bg-gold-500 hover:text-navy-950 transition-all">
+                            <i class="fa-brands fa-instagram text-xs"></i>
+                        </a>
+                        <a href="https://wa.me/5511999999999" aria-label="WhatsApp" class="w-9 h-9 rounded-full bg-navy-900 border border-slate-800 flex items-center justify-center text-gold-400 hover:bg-gold-500 hover:text-navy-950 transition-all">
+                            <i class="fa-brands fa-whatsapp text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Atendimento e Endereço -->
+                <div>
+                    <h4 class="font-serif text-white font-semibold mb-4 text-xs tracking-wider uppercase">Atendimento</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><i class="fa-solid fa-location-dot text-gold-400 mr-2"></i> Av. Paulista, 1000 - Bela Vista, São Paulo - SP</li>
+                        <li><i class="fa-solid fa-clock text-gold-400 mr-2"></i> Seg a Sex: 08:30h - 19:00h</li>
+                        <li><i class="fa-solid fa-envelope text-gold-400 mr-2"></i> contato@sofiaelucas.adv.br</li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: OAB Disclaimers & Security -->
+                <div>
+                    <h4 class="font-serif text-white font-semibold mb-4 text-xs tracking-wider uppercase">Registros & Ética</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-3">
+                        Dra. Sofia Mendes (OAB/SP 382.910)<br>
+                        Dr. Lucas Mendes (OAB/SP 391.204)
+                    </p>
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-navy-900 border border-slate-800 text-[10px] text-slate-400">
+                        <i class="fa-solid fa-lock text-gold-400"></i>
+                        <span>Sigilo e Confidencialidade OAB</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 border-t border-slate-900/80 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-4">
+                <div>© 2026 Sofia & Lucas Advocacia e Consultoria Jurídica. Todos os direitos reservados.</div>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-slate-400">Termos de Uso</a>
+                    <a href="#" class="hover:text-slate-400">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 9. Javascript Logic -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // FAQ Accordion Toggle
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // WhatsApp Form Redirect Function
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+            const area = document.getElementById('form-area').value;
+            const message = document.getElementById('form-message').value;
+
+            const alertBox = document.getElementById('form-alert');
+            alertBox.classList.remove('hidden');
+
+            // Format message string
+            const formattedMessage = `Olá, Dra. Sofia e Dr. Lucas!\n\nMeu nome é *${name}*\nTelefone: ${phone}\nÁrea de Interesse: *${area}*\n\nResumo da Situação:\n"${message}"`;
+            const encodedUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(formattedMessage)}`;
+
+            // Delay for user feedback before opening link
+            setTimeout(() => {
+                window.open(encodedUrl, '_blank');
+                alertBox.classList.add('hidden');
+                document.getElementById('whatsapp-form').reset();
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
